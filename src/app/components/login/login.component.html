@@ -1,1 +1,37 @@
-<h1>{{title}}</h1>
+<div class="row">
+  <div class="col-12">
+    <h2>{{title}}</h2>
+    <hr>
+
+    <div class="alert alert-danger" *ngIf="status == 'error'">
+      Error al iniciar sesion
+    </div>
+
+    <form action="" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="col-8">
+      <p>
+        <label for="email">Email</label>
+        <input type="email"
+               name="email"
+               id="email"
+               class="form-control"
+               #email="ngModel"
+               [(ngModel)]="user.email" required>
+        <span *ngIf="!email.valid && email.touched">El Email no es valido</span>
+      </p>
+      <p>
+        <label for="password">Password</label>
+        <input type="password"
+               name="password"
+               id="password"
+               class="form-control"
+               #password="ngModel"
+               [(ngModel)]="user.password" required>
+        <span *ngIf="!password.valid && password.touched">El Password no es valido</span>
+      </p>
+      <input type="submit"
+             value="Ingresar"
+             class="btn btn-outline-success" [disabled]="!loginForm.valid">
+    </form>
+
+  </div>
+</div>
