@@ -1,0 +1,71 @@
+<div class="col-12">
+  <h4>
+    {{page_title}}
+  </h4>
+
+  <div class="alert alert-danger" *ngIf="status_car == 'error'">
+    Error al guardar el vehiculo
+  </div>
+
+  <div class="alert alert-success" *ngIf="status_car == 'success'">
+    Se guardo correctamente el vehiculo
+  </div>
+
+  <form action="" #carNew="ngForm" (ngSubmit)="onSubmit(carNew)" class="col-8">
+    <p>
+      <label for="title">Titulo</label>
+      <input type="text"
+             name="title"
+             id="title"
+             class="form-control"
+             #title="ngModel"
+             [(ngModel)]="car.title" required>
+      <span *ngIf="!title.valid && title.touched">El Titulo no es valido o es vacio</span>
+    </p>
+    <p>
+      <label for="description">Descripcion</label>
+      <textarea
+        name="description"
+        id="description"
+        class="form-control"
+        #description="ngModel"
+        [(ngModel)]="car.description" required>
+      </textarea>
+      <span *ngIf="!description.valid && description.touched">La Descripcion no es valida o es vacio</span>
+    </p>
+    <p>
+      <label for="price">Precio</label>
+      <input
+        name="price"
+        id="price"
+        class="form-control"
+        #price="ngModel"
+        type="text"
+        [(ngModel)]="car.price" required>
+      <span *ngIf="!price.valid && price.touched">El precio no es valido o es vacio</span>
+    </p>
+    <p>
+      <label for="status">A la venta ?</label>
+      <select
+        name="status"
+        id="status"
+        class="form-control"
+        #status="ngModel"
+        type="text"
+        [(ngModel)]="car.status" required>
+        <option value="true" selected>Si</option>
+        <option value="false">No</option>
+      </select>
+      <span *ngIf="!status.valid && status.touched">El precio no es valido o es vacio</span>
+    </p>
+
+
+    <input type="submit"
+           value="Guardar"
+           class="btn btn-outline-success" [disabled]="!carNew.valid">
+  </form>
+
+
+</div>
+
+

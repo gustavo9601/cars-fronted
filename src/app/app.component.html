@@ -13,7 +13,7 @@
           <a class="nav-link" [routerLink]="['/home']">Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item" *ngIf="_userService.identity">
-          <a class="nav-link" href="#">Crear coche</a>
+          <a class="nav-link" [routerLink]="['/create-car']">Crear coche</a>
         </li>
       </ul>
 

@@ -1,3 +1,37 @@
-<p>
-  home works!
-</p>
+<div class="row">
+  <div class="col-12" *ngIf="cars">
+
+
+    <div class="alert alert-success" *ngIf="status_delete == 'success'">
+      {{message_delete}}
+    </div>
+
+
+    <div class="alert alert-danger" *ngIf="status_delete == 'error'">
+      {{message_delete}}
+    </div>
+
+    <table class="table table-dark table-hover table-stripped">
+      <thead>
+      <tr>
+        <th scope="col">Titulo</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Estatus</th>
+        <th scope="col">Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let car of cars">
+        <td><a [routerLink]="['/car', car.id]">{{car.title}}</a></td>
+        <td>{{car.price}}</td>
+        <td>{{car.status}}</td>
+        <td>
+          <a class="btn btn-warning" [routerLink]="['/edit-car', car.id]">Editar</a>
+          <a class="btn btn-danger" (click)="deleteCar(car.id)" style="cursor: pointer" >Borrar</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

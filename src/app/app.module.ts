@@ -12,14 +12,22 @@ import{routing, appRoutingProviders} from "src/app/app.routing";
 
 //Importando servicio
 import {UserService} from "src/app/services/user.service";
+import {CarService} from "src/app/services/car.service";
+
 import { HomeComponent } from './components/home/home.component';
+import { CarNewComponent } from './components/car-new/car-new.component';
+import { CarEditComponent } from './components/car-edit/car-edit.component';
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    CarNewComponent,
+    CarEditComponent,
+    CarDetailComponent,
   ],
   imports: [
     //Modulos
@@ -31,7 +39,8 @@ import { HomeComponent } from './components/home/home.component';
   providers: [
     //Servicio de las rutas
     appRoutingProviders,
-    UserService
+    UserService,
+    CarService
   ],
   bootstrap: [AppComponent]
 })
